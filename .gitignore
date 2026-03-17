@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Pytest / coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+*.log
+
+# Database files (optional if using local SQLite)
+*.sqlite3
