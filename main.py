@@ -171,7 +171,7 @@ async def chat_endpoint(request: Request, body: ChatRequest):
     except Exception as e:
         print("🔥 FULL ERROR:", repr(e))  # IMPORTANT
         return {
-            "response": "Backend error",
+            "response": "Please come back letter",
             "error": str(e)
         }
 @app.get("/")
