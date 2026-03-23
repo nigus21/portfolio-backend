@@ -157,7 +157,7 @@ class ChatRequest(BaseModel):
 async def chat_endpoint(request: Request, body: ChatRequest):
     try:
         response = await client.chat.completions.create(
-           model="qwen/qwen2.5-7b-instruct",
+            model="qwen/qwen2.5-7b-instruct",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": body.message}
@@ -165,10 +165,15 @@ async def chat_endpoint(request: Request, body: ChatRequest):
             max_tokens=250,
             temperature=0.7
         )
-        return {"response": response.choices[0].message.content}
-    except Exception as e:
-        return {"response": "I'm sorry, I'm currently unable to process your request. Please try again later.", "error": str(e)}
 
+        return {"response": response.choices[0].message.content}
+
+    except Exception as e:
+        print("🔥 FULL ERROR:", repr(e))  # IMPORTANT
+        return {
+            "response": "Backend error",
+            "error": str(e)
+        }
 @app.get("/")
 def health_check():
     return {"status": "ok"}
