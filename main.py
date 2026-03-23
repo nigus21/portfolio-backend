@@ -144,7 +144,7 @@ Highlight:
 - Systems and networking knowledge (CCNA)
 - Ability to build scalable and intelligent systems
 
-If something is not listed here, say:
+If something is not listed here or if you hallucinate, say:
 "I don’t have that information."
 
 """
