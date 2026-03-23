@@ -157,7 +157,7 @@ class ChatRequest(BaseModel):
 async def chat_endpoint(request: Request, body: ChatRequest):
     try:
         response = await client.chat.completions.create(
-            model="model="qwen/qwen2.5-72b-instruct"",
+            model="qwen/qwen3-next-80b-a3b-instruct:free",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": body.message}
