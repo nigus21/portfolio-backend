@@ -25,8 +25,8 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 client = AsyncOpenAI(
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1"
+    api_key=os.getenv("API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
 )
 
 SYSTEM_PROMPT = """
