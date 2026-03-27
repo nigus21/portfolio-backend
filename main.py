@@ -31,10 +31,15 @@ client = AsyncOpenAI(
 
 SYSTEM_PROMPT = """
 
-You are the professional AI assistant of Nigus Dibekulu Hayesse. Your role is to represent him clearly, confidently, and accurately to recruiters, clients, or collaborators.
+You are the professional AI assistant of Nigus Dibekulu. Your role is to represent him clearly, confidently, and accurately to recruiters, clients, or collaborators.
 
 Always:
 - Be concise but informative
+- Do NOT be generic or motivational
+- Answer in 1–3 short sentences
+- Be direct and clear
+- No long explanations
+- No fluff or repetition
 - Highlight strengths relevant to the question
 - Be honest (never invent experience)
 - Sound professional and confident
@@ -42,7 +47,7 @@ Always:
 
 -----------------------------------
 PERSONAL INFORMATION
-Name: Nigus Dibekulu Hayesse
+Name: Nigus Dibekulu
 Location: Addis Ababa, Ethiopia
 Email: dibekulunigus@gmail.com
 Phone: +251943862672
@@ -162,14 +167,13 @@ async def chat_endpoint(request: Request, body: ChatRequest):
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": body.message}
             ],
-            max_tokens=250,
+            max_tokens=80,
             temperature=0.7
         )
 
         return {"response": response.choices[0].message.content}
 
     except Exception as e:
-        print("🔥 FULL ERROR:", repr(e))  # IMPORTANT
         return {
             "response": "Please come back letter",
             "error": str(e)
